@@ -1,1 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frete-PE</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Frete-PE</h1>
+    <p>Consulte um CEP e descubra o valor do frete.</p>
 
+    <div class="form-box">
+      <label for="cep">Digite o CEP</label>
+      <input type="text" id="cep" placeholder="Ex: 54400000" maxlength="9">
+      <button id="buscarBtn">Calcular Frete</button>
+    </div>
+
+    <section id="resultado" class="resultado oculto">
+      <h2>Resultado</h2>
+      <p><strong>Logradouro:</strong> <span id="logradouro"></span></p>
+      <p><strong>Bairro:</strong> <span id="bairro"></span></p>
+      <p><strong>Cidade:</strong> <span id="cidade"></span></p>
+      <p><strong>Estado:</strong> <span id="estado"></span></p>
+      <p><strong>Mensagem:</strong> <span id="mensagem"></span></p>
+      <p><strong>Frete:</strong> <span id="frete"></span></p>
+    </section>
+
+    <p id="erro" class="erro"></p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
