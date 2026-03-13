@@ -9,6 +9,7 @@ const rl = readline.createInterface({
 });
 
 rl.question("Digite o CEP: ", async (cep) => {
+
   try {
 
     if (!isValidCep(cep)) {
@@ -16,23 +17,24 @@ rl.question("Digite o CEP: ", async (cep) => {
     }
 
     const endereco = await buscarEnderecoPorCep(cep);
+    const frete = calcularFrete(endereco);
 
-    const resultadoFrete = calcularFrete(endereco);
-
-    console.log("\nEndereço encontrado:");
-    console.log(`Cidade: ${endereco.localidade}`);
-    console.log(`Estado: ${endereco.uf}`);
+    console.log("\nCidade:", endereco.localidade);
+    console.log("Estado:", endereco.uf);
 
     console.log("\nResultado do frete:");
-    console.log(resultadoFrete.mensagem);
+    console.log(frete.mensagem);
 
-    if (resultadoFrete.valorFrete !== null) {
-      console.log(`Valor do frete: R$ ${resultadoFrete.valorFrete.toFixed(2)}`);
+    if (frete.valorFrete !== null) {
+      console.log("Valor:", frete.valorFrete);
     }
 
-  } catch (error) {
-    console.log("Erro:", error.message);
-  } finally {
-    rl.close();
+  } catch (erro) {
+
+    console.log("Erro:", erro.message);
+
   }
+
+  rl.close();
+
 });
